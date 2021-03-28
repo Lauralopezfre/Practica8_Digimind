@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -32,7 +30,8 @@ class DashboardFragment : Fragment() {
         dashboardViewModel =
                 ViewModelProvider(this).get(DashboardViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        btn_time.setOnClickListener {
+        val btntime : Button = root.findViewById(R.id.btn_time)
+        btntime.setOnClickListener {
             val cal = Calendar.getInstance()
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
                 cal.set(Calendar.HOUR_OF_DAY, hour)
@@ -43,18 +42,30 @@ class DashboardFragment : Fragment() {
 
             TimePickerDialog(root.context, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE),true).show()
             }
-        btn_save.setOnClickListener {
-            var title = et_task.text.toString()
-            var time = btn_time.text.toString()
+
+        val btnsave :Button = root.findViewById(R.id.btn_save)
+        val ettask : EditText = root.findViewById(R.id.et_task)
+        val bttime : Button = root.findViewById(R.id.btn_time)
+        btnsave.setOnClickListener {
+            var title = ettask.text.toString()
+            var time = bttime.text.toString()
             var days = ArrayList<String>()
 
-            if(checkMonday.isChecked)days.add("Monday")
-            if(checkTuesday.isChecked)days.add("Tuesday")
-            if(checkWednesday.isChecked)days.add("Wednesday")
-            if(checkThursday.isChecked)days.add("Thursday")
-            if(checkFriday.isChecked)days.add("Friday")
-            if(checkSaturday.isChecked)days.add("Saturday")
-            if(checkSunday.isChecked)days.add("Sunday")
+            val check_Monday : CheckBox = root.findViewById(R.id.checkMonday)
+            val check_Tuesday : CheckBox = root.findViewById(R.id.checkTuesday)
+            val check_Wednesday : CheckBox = root.findViewById(R.id.checkWednesday)
+            val check_Thursday : CheckBox = root.findViewById(R.id.checkThursday)
+            val check_Friday : CheckBox = root.findViewById(R.id.checkFriday)
+            val check_Saturday : CheckBox = root.findViewById(R.id.checkSaturday)
+            val check_Sunday : CheckBox = root.findViewById(R.id.checkSunday)
+
+            if(check_Monday.isChecked)days.add("Monday")
+            if(check_Tuesday.isChecked)days.add("Tuesday")
+            if(check_Wednesday.isChecked)days.add("Wednesday")
+            if(check_Thursday.isChecked)days.add("Thursday")
+            if(check_Friday.isChecked)days.add("Friday")
+            if(check_Saturday.isChecked)days.add("Saturday")
+            if(check_Sunday.isChecked)days.add("Sunday")
 
             var task = Task(title, days, time)
             HomeFragment.tasks.add(task)

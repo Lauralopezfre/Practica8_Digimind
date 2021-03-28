@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.GridView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -40,7 +41,10 @@ class HomeFragment : Fragment() {
 
 
         adaptador = AdaptadorTareas(root.context, tasks)
-        gridView.adapter = adaptador
+
+        val grid_v : GridView = root.findViewById(R.id.gridView)
+        grid_v.adapter = adaptador
+
         return root
     }
 
