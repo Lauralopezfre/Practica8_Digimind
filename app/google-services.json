@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "753282363987",
+    "project_id": "mydigimind-ea05e",
+    "storage_bucket": "mydigimind-ea05e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753282363987:android:e8054adc0f4aa6ad3e4ca6",
+        "android_client_info": {
+          "package_name": "lopez.laura.mydigimind"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753282363987-jt6pq637rin8ls8r513u4b3uqofmmsc4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwxUMVsrVZQiH2vyUuKa-Hptmfha_pW0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "753282363987-jt6pq637rin8ls8r513u4b3uqofmmsc4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
